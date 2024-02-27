@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "713388994881",
+    "project_id": "imochat-7e97a",
+    "storage_bucket": "imochat-7e97a.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:713388994881:android:99b694eb6d89418c29f1c0",
+        "android_client_info": {
+          "package_name": "com.example.imochat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAfzUrE5rwsWzlieKUGHv_A8tashBTt3rQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
