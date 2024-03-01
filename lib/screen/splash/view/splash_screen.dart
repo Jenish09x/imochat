@@ -3,6 +3,9 @@ import 'package:flutter_animate/flutter_animate.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
+import '../../../utils/fire_helper/fire_auth_helper.dart';
+import '../../../utils/fire_helper/fire_helper.dart';
+
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
 
@@ -18,7 +21,9 @@ class _SplashScreenState extends State<SplashScreen> {
       const Duration(seconds: 3),
       () => Get.offAllNamed("login"),
     );
+    FireAuthHelper.fireAuthHelper.checkUser();
   }
+
 
   @override
   Widget build(BuildContext context) {

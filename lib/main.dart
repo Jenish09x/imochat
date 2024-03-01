@@ -13,6 +13,7 @@ Future<void> main() async {
 
   return runApp(
     GetMaterialApp(
+      theme: ThemeData(useMaterial3: true),
       debugShowCheckedModeBanner: false,
       routes: screen_routes,
     )

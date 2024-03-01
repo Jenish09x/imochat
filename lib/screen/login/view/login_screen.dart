@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:imochat/utils/fire_helper.dart';
+import 'package:imochat/utils/fire_helper/fire_auth_helper.dart';
 
 class LoginScreen extends StatefulWidget {
   const LoginScreen({super.key});
@@ -42,9 +42,12 @@ class _LoginScreenState extends State<LoginScreen> {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
                     iconTile("assets/image/Facebook.png"),
-                    InkWell(onTap: () {
-                      FireHelper fireHelper=FireHelper();
-                      fireHelper.googleLogin();
+                    InkWell(onTap: () async {
+                      String? msg = await FireAuthHelper.fireAuthHelper.googleLogin();
+                      if(msg=="succsess")
+                        {
+                          Get.offAllNamed("dash");
+                        }
                     },child: iconTile("assets/image/Google.png")),
                     iconTile("assets/image/Iphone.png"),
                   ],
