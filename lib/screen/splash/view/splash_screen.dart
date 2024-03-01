@@ -18,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.offAllNamed(FireAuthHelper.fireAuthHelper.user!=null?"home":"login"),
+      () => Get.offAllNamed(FireAuthHelper.fireAuthHelper.user!=null?"dash":"login"),
     );
     FireAuthHelper.fireAuthHelper.checkUser();
   }
