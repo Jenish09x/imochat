@@ -4,7 +4,6 @@ import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 
 import '../../../utils/fire_helper/fire_auth_helper.dart';
-import '../../../utils/fire_helper/fire_helper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
@@ -19,7 +18,7 @@ class _SplashScreenState extends State<SplashScreen> {
     super.initState();
     Future.delayed(
       const Duration(seconds: 3),
-      () => Get.offAllNamed("login"),
+      () => Get.offAllNamed(FireAuthHelper.fireAuthHelper.user!=null?"home":"login"),
     );
     FireAuthHelper.fireAuthHelper.checkUser();
   }
