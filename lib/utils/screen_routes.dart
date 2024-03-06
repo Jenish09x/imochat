@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:imochat/screen/chat/view/chat_screen.dart';
 import 'package:imochat/screen/dash/view/dash_screen.dart';
 import 'package:imochat/screen/home/view/home_screen.dart';
 import 'package:imochat/screen/login/view/login_screen.dart';
@@ -16,4 +17,5 @@ Map<String, WidgetBuilder>screen_routes = {
   'dash': (context) => const DashScreen(),
   'home': (context) => const HomeScreen(),
   'profile': (context) => const ProfileScreen(),
+  'chat': (context) => const ChatScreen(),
 };

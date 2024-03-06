@@ -46,7 +46,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       String? msg = await FireAuthHelper.fireAuthHelper.googleLogin();
                       if(msg=="succsess")
                         {
-                          Get.offAllNamed("dash");
+                          Get.offAllNamed("profile");
                         }
                     },child: iconTile("assets/image/Google.png")),
                     iconTile("assets/image/Iphone.png"),

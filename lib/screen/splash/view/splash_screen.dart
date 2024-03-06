@@ -16,13 +16,12 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    Future.delayed(
-      const Duration(seconds: 3),
-      () => Get.offAllNamed(FireAuthHelper.fireAuthHelper.user!=null?"dash":"login"),
+    bool isLogin = FireAuthHelper.fireAuthHelper.checkUser();
+    Future.delayed(const Duration(seconds: 3),
+      () => Get.offAllNamed(isLogin==false ? "login" : "profile"),
     );
     FireAuthHelper.fireAuthHelper.checkUser();
   }
-
 
   @override
   Widget build(BuildContext context) {

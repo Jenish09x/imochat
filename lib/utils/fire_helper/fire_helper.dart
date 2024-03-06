@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 
+import '../../screen/chat/model/chat_model.dart';
 import '../../screen/profile/model/profile_model.dart';
 import 'fire_auth_helper.dart';
 
@@ -16,6 +17,7 @@ class FireDbHelper {
         .doc(FireAuthHelper.fireAuthHelper.user!.uid)
         .set(
       {
+        "id": p1.uid,
         "name": p1.name,
         "mobile": p1.mobile,
         "bio": p1.bio,
@@ -26,17 +28,45 @@ class FireDbHelper {
     );
   }
 
-  Stream<DocumentSnapshot<Map>> getProfileData()  {
-
-    Stream<DocumentSnapshot<Map>> data =  fireDb
+  Stream<DocumentSnapshot<Map>> getProfileData() {
+    Stream<DocumentSnapshot<Map>> data = fireDb
         .collection("user")
         .doc(FireAuthHelper.fireAuthHelper.user!.uid)
         .snapshots();
     return data;
   }
 
-  Stream<QuerySnapshot<Map<String, dynamic>>> getAllProfile(){
-    return fireDb.collection("user").where("id",isNotEqualTo: FireAuthHelper.fireAuthHelper.user!.uid).snapshots();
+  Future<Map?> getProfile() async {
+    FireAuthHelper.fireAuthHelper.checkUser();
+    DocumentSnapshot? ds = await fireDb
+        .collection("user")
+        .doc(FireAuthHelper.fireAuthHelper.user!.uid)
+        .get() ??
+        null;
+    if (ds != null) {
+      Map data = ds.data() as Map;
+      return data;
+    }
+    return null;
+  }
 
+  Stream<QuerySnapshot<Map<String, dynamic>>> getAllProfile() {
+    return fireDb
+        .collection("user")
+        .where("id", isNotEqualTo: FireAuthHelper.fireAuthHelper.user!.uid)
+        .snapshots();
+  }
+
+  void sendMassage({required String fuid, required ChatModel chatModel}) {
+    fireDb
+        .collection("chat")
+        .doc("${FireAuthHelper.fireAuthHelper.user!.uid}:$fuid}")
+        .collection("message")
+        .add({
+      "name": chatModel.name,
+      "msg": chatModel.msg,
+      "date": chatModel.date,
+      "time": chatModel.time
+    });
   }
 }

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../../../utils/fire_helper/fire_helper.dart';
 import '../../profile/model/profile_model.dart';
@@ -48,6 +49,9 @@ class _ContactScreenState extends State<ContactScreen> {
                 itemCount: userData.length,
                 itemBuilder: (context, index) {
                   return ListTile(
+                    onTap: () {
+                      Get.toNamed("chat",arguments: userData[index]);
+                    },
                     leading: userData[index].image != null
                         ? CircleAvatar(
                             radius: 30,

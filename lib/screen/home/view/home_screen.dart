@@ -76,36 +76,36 @@ class _HomeScreenState extends State<HomeScreen> {
                         ],
                       ),
                     ),
-                    child: const CircleAvatar(
+                    child: CircleAvatar(
                       radius: 38,
-                      // backgroundImage:
-                      // AssetImage("assets/image/${controller.img[index]}"),
+                      backgroundImage:
+                          AssetImage("assets/image/${controller.img[index]}"),
                     ),
                   ),
                 ),
               ),
             ),
-            SliverToBoxAdapter(
-              child: Container(
-                height: MediaQuery.sizeOf(context).height * 0.65,
-                width: double.infinity,
-                decoration: const BoxDecoration(
-                  color: Colors.red,
-                  borderRadius: BorderRadius.only(
-                    topRight: Radius.circular(30),
-                    topLeft: Radius.circular(30),
-                  ),
-                ),
-                child: const Column(
-                  children: [
-                    Icon(
-                      Icons.drag_handle,
-                      color: Colors.white,
-                    )
-                  ],
-                ),
-              ),
-            )
+            // SliverToBoxAdapter(
+            //   child: Container(
+            //     height: double.infinity,
+            //     width: double.infinity,
+            //     decoration: const BoxDecoration(
+            //       color: Colors.grey,
+            //       borderRadius: BorderRadius.only(
+            //         topRight: Radius.circular(30),
+            //         topLeft: Radius.circular(30),
+            //       ),
+            //     ),
+            //     child: const Column(
+            //       children: [
+            //         Icon(
+            //           Icons.drag_handle,
+            //           color: Colors.white,
+            //         )
+            //       ],
+            //     ),
+            //   ),
+            // )
           ],
         ),
         drawer: Drawer(
